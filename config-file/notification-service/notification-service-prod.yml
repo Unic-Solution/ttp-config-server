@@ -1,0 +1,90 @@
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  web:
+    resources:
+      add-mappings: false
+
+  datasource:
+    username: ${DB_USER_NAME}
+    password: ${DB_USER_PWD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST}:3306/${DB_NAME}?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database: mysql
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Seoul
+        show_sql: true
+        format_sql: true
+        highlight_sql: true
+        default_batch_fetch_size: 100
+    defer-datasource-initialization: false
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+    locations:
+      - classpath:db/migration
+
+  logging:
+    level:
+      org.hibernate.SQL: info
+      org.hibernate.type.descriptor.sql: off
+
+  jwt:
+    secret: ${JWT_SECRET}
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
+
+  tomcat:
+    max-swallow-size: 100MB
+
+  mail:
+    host: smtp.whoisworks.com
+    port: 587
+    username: ${MAIL_ID}
+    password: ${MAIL_PW}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+    auth-code-expiration-millis: 1800000
+
+r2:
+  bucketName: ${R2_BUCKET_NAME}
+  endpointUrl: ${R2_ENDPOINT_URL}
+  region: APAC
+  accessKey: ${R2_ACCESS_KEY}
+  secretKey: ${R2_SECRET_KEY}
+
+logging:
+  slack-info:
+    webhook-uri: ${SLACK_WEB_HOOK_URI_INFO}
+    channel: log-info
+    username: HOMEPAGE INFO LOG BOT
+    emoji: eyes
+
+  slack-error:
+    webhook-uri: ${SLACK_WEB_HOOK_URI_ERROR}
+    channel: log-error
+    username: HOMEPAGE ERROR LOG BOT
+    emoji: exclamation
