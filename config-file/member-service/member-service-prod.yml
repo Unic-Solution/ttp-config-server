@@ -88,3 +88,6 @@ logging:
     channel: log-error
     username: HOMEPAGE ERROR LOG BOT
     emoji: exclamation
+
+kafka:
+  broker-url: ${BROKER_URL}
