@@ -76,6 +76,9 @@ r2:
   accessKey: ${R2_ACCESS_KEY}
   secretKey: ${R2_SECRET_KEY}
 
+elastic-search:
+  uri: ${ELASTICSEARCH_URI}
+
 logging:
   slack-info:
     webhook-uri: ${SLACK_WEB_HOOK_URI_INFO}
