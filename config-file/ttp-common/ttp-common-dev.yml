@@ -78,6 +78,8 @@ r2:
 
 elastic-search:
   uri: ${ELASTICSEARCH_URI}
+  username: ${ELASTICSEARCH_USERNAME}
+  password: ${ELASTICSEARCH_PASSWORD}
 
 logging:
   slack-info:
