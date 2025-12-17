@@ -80,6 +80,10 @@ elastic-search:
   uri: ${ELASTICSEARCH_URI}
   username: ${ELASTICSEARCH_USERNAME}
   password: ${ELASTICSEARCH_PASSWORD}
+  client:
+      host: ${CLIENT_HOST}
+      port: ${CLIENT_PORT}
+      schema: ${CLIENT_SCHEMA}
 
 logging:
   slack-info:
