@@ -75,5 +75,5 @@ management:
 
 jwt:
   secret: ${JWT_SECRET}
-  accessTokenExpiration: 900000
+  accessTokenExpiration: 300000
   refreshTokenExpiration: 86400000
