@@ -47,6 +47,8 @@ spring:
       expire: 300000
     refresh-token:
       expire: 86400000
+    internal-token:
+      expire: 100000
 
   servlet:
     multipart:
