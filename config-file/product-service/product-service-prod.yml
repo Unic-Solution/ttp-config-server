@@ -43,6 +43,10 @@ spring:
 
   jwt:
     secret: ${JWT_SECRET}
+    access-token:
+      expire: 300000
+    refresh-token:
+      expire: 86400000
 
   servlet:
     multipart:
@@ -68,6 +72,10 @@ spring:
           timeout: 5000
           writetimeout: 5000
     auth-code-expiration-millis: 1800000
+
+cookie:
+  secure: true
+  same-site: NONE
 
 r2:
   bucketName: ${R2_BUCKET_NAME}
